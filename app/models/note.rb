@@ -1,4 +1,4 @@
-class Note < ActiveRecord::Base
-  # add associations here
-  belongs_to :song
+class Genre < ActiveRecord::Base
+  # add associations
+  has_many :songs
 end
