@@ -13,12 +13,12 @@ class Song < ActiveRecord::Base
   end
 
   # def notes
-  #   self.notes ? self.notes[0].content : nil
+  #   self.notes ? self.notes..content : nil
   # end
-  #
-  # def notes_1=(content)
-  #   self.notes.first = Note.find_or_create_by(content: content)
-  # end
+  
+  def notes_1=(content)
+    self.notes[0] = Note.find_or_create_by(content: content)
+  end
 
   # def genre_name
   #   self.genre ? self.genre.name : nil
