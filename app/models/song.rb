@@ -4,12 +4,30 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  attr_accessor :notes_1, :notes_2
+
   def artist_name
     self.artist ? self.artist.name : nil
   end
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
+  end
+
+  def notes_1
+    self.notes[0] ? self.notes[0].content : nil
+  end
+
+  def notes_1=(content)
+    notes_1 = self.notes.build(content: content)
+  end
+
+  def notes_2
+    self.notes[1] ? self.notes[1].content : nil
+  end
+
+  def notes_2=(content)
+    notes_2 = self.notes.build(content: content)
   end
 
   # def genre_name
