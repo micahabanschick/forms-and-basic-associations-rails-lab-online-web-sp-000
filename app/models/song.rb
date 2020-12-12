@@ -4,6 +4,8 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  attr_accessor :notes_1
+
   def artist_name
     self.artist ? self.artist.name : nil
   end
